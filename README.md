@@ -1,51 +1,39 @@
 # penetration_test
-Official repository of penetration test by reinforcement learning. This repository is built on the open-source penetration testing benchmark: [NetworkAttackSimulator](https://github.com/Jjschwartz/NetworkAttackSimulator).
 
+This repository is an **extended implementation** of our WEBIST work and codebase:
 
-## Installation
+- **Base (WEBIST paper) repository:** https://github.com/cxjuan/penetration_test
 
-* wget https://repo.anaconda.com/archive/Anaconda3-2024.10-1-Linux-x86_64.sh
-* bash Anaconda3-2024.10-1-Linux-x86_64.sh
-* export PATH = $PATH:~/anaconda3/bin
-* conda env create -f environment.yml
-* conda activate nasim
+The original repository accompanies the WEBIST paper implementation and experiments.  
+This repository extends the WEBIST codebase with additional algorithms, training/evaluation utilities, and implementation details aimed at more systematic large-scale experiments.
 
-## Training
+Built on the open-source penetration testing benchmark **NetworkAttackSimulator (NASim)**:  
+https://github.com/Jjschwartz/NetworkAttackSimulator
 
-For large-scale training, please refer to the follwing scripts:
-* sh train.sh
+---
 
-For single training on different scenarios, please refer to follwing scripts:
-* python train_constrained_dqn.py tiny policies/CDQN.pth
+## What is added in this extended repository (vs. the WEBIST repo)
 
-## Test
+Compared with the WEBIST repository above, this extension studies **the impact of Lagrangian multiplier update rules** beyond the paper’s baseline constraint-handling configuration, including:
 
-For testing the trained policies on different scenarios, please refer to follwing scripts:
-* python run_dqn_policy.py tiny policies/CDQN.pth -seed 0
+- **Scalar multiplier updates** (projected Lagrangian updates)
+- **Hybrid-neural multiplier updates** (neural update with explicit structure/constraints)
+- **Pure-neural multiplier updates** (fully learned multiplier dynamics)
 
+These additions enable controlled studies of **effectiveness–efficiency trade-offs** under different multiplier-update rules.
 
-# Hyperparameters for DQN and Constrained-DQN
+> For strict reproducibility, keep the WEBIST repo as the “minimal reference implementation,”  
+> and treat this repo as the “research/experimental extension.”
 
-| **Hyperparameters** | **Settings**      |
-|---------------------|-------------------|
-| Network             | [256,512,256]     |
-| Activation          | ReLU              |
-| Learning Rate       | 1 × 10⁻³          |
-| Replay Buffer       | 10,000            |
-| Batch Size          | 128               |
-| Optimizer           | Adam              |
-
+---
 
 ## Associated Publication
 
-This repository supports the findings of the following paper:
+This repository supports the findings of the following papers:
 
-> **[Multi-Objective Policy Optimization for Effective and Cost-Conscious Penetration Testing]**  
-> Authors: [Xiaojuan Cai], [Lulu Zhu], [Zhuo Li], [Hiroshi Koide]  
-> Citation: Cai, X.; Zhu, L.; Li, Z. and Koide, H. (2025). Multi-Objective Policy Optimization for Effective and Cost-Conscious Penetration Testing.  In Proceedings of the 21st International Conference on Web Information Systems and Technologies, ISBN 978-989-758-772-6, ISSN 2184-3252, pages 488-499.    
+> **Multi-Objective Policy Optimization for Effective and Cost-Conscious Penetration Testing**  
+> Authors: Xiaojuan Cai, Lulu Zhu, Zhuo Li, Hiroshi Koide  
+> Citation: Cai, X.; Zhu, L.; Li, Z.; Koide, H. (2025). *Multi-Objective Policy Optimization for Effective and Cost-Conscious Penetration Testing.* In Proceedings of the 21st International Conference on Web Information Systems and Technologies, pp. 488–499.
 
-For additional implementation details, please refer to:
-
-`Appendices_Implement_Details/` – contains environment components, a simplified example of constrained policy optimization, and implementation notes of Random- and Rule-Based Method not included in the main paper.
-
-
+> **Effective and Cost-Aware Penetration Testing via Lagrangian Multi-Objective Reinforcement Learning: Scalar, Hybrid, and Pure Neural Multiplier Updates**  
+> Authors: Xiaojuan Cai, Lulu Zhu, Zhuo Li, Hiroshi Koide

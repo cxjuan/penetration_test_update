@@ -35,5 +35,5 @@ This repository supports the findings of the following papers:
 > Authors: Xiaojuan Cai, Lulu Zhu, Zhuo Li, Hiroshi Koide  
 > Citation: Cai, X.; Zhu, L.; Li, Z.; Koide, H. (2025). *Multi-Objective Policy Optimization for Effective and Cost-Conscious Penetration Testing.* In Proceedings of the 21st International Conference on Web Information Systems and Technologies, pp. 488–499.
 
-> **Effective and Cost-Aware Penetration Testing via Lagrangian Multi-Objective Reinforcement Learning: Scalar, Hybrid, and Pure Neural Multiplier Updates**  
+> **Multi-Objective Policy Optimization for Effective and Cost-Conscious Penetration Testing with Adaptive Lagrangian Multiplier Updates**  
 > Authors: Xiaojuan Cai, Lulu Zhu, Zhuo Li, Hiroshi Koide
